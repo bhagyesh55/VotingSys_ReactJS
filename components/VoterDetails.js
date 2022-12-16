@@ -35,11 +35,8 @@ function VoterDetails(){
       selector:(row)=>row.mobileNumber
     },
     {
-      name:'Action',
-      cell: row => <select>
-        <option value ="Approved">Approved</option>
-        <option value = "Denied">Denied</option>
-      </select>
+      name:'Voted?',
+      selector:(row)=>row.contestantID,
     }
 
   ];

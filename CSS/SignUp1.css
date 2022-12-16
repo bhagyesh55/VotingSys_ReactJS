@@ -4,20 +4,20 @@
 
 .Header-form-container {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 47vh;
     text-align: center;
 }
   
 .Header-form {
-    width: 420px;
-    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    width: 300px;
+    /* box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px; */
     padding-top: 30px;
     padding-bottom: 20px;
     border-radius: 8px;
-    background-color: white;
+    /* background-color: white; */
 }
   
 .Header-form-content {

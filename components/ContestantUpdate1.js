@@ -10,7 +10,7 @@ function ContestantUpdate1(){
     function submit(e){
         e.preventDefault();
         const updatecontestant ={contestantID,status};
-        axios.put(`http://localhost:8080/contestant/${contestantID}`,updatecontestant).then((res)=>{console.log(res)})
+        axios.put(`http://localhost:8080/contestant/update/${contestantID}`,updatecontestant).then((res)=>{console.log(res)})
         navigate('/contestantupdate')
     }
     return(
@@ -22,7 +22,11 @@ function ContestantUpdate1(){
             </div><br/>
             <div class="form-group">
                     <label for = "form1">Status</label>
-                    <input type="text" class="form-control" id="form1" value = {status} onChange={(e)=>setStatus(e.target.value)}/>
+                    <select value={status} class="form-control" id="form1" onChange={(e)=>setStatus(e.target.value)}>
+                            <option value = "Approved">Approved</option>
+                            <option value = "Denied">Denied</option>
+                    </select>                    
+                    {/* <input type="text" class="form-control" id="form1" value = {status} onChange={(e)=>setStatus(e.target.value)}/> */}
             </div><br/>
             <div>
                     <button onClick={()=>{submit();}}>Update</button><br/>

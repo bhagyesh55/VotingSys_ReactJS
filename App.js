@@ -11,18 +11,24 @@ import Admin from "./components/Admin";
 import VotingPage from "./components/VotingPage";
 import ContestantUpdate from "./components/ContestantUpdate";
 import ContestantUpdate1 from "./components/ContestantUpdate1";
+import Result from "./components/Results";
+import Verify from "./components/Verify";
+import DeleteVoter from "./components/DeleteVoter";
 import './CSS/Home.css'
 import './CSS/VoterHome.css'
 import './CSS/SignUp1.css'
 import './CSS/ContestantDetails.css';
 
+
 import { ReactDOM } from "react-dom";
 
 function App() {
   return (
+    
     <div>
 
       <BrowserRouter>
+    
         <Routes>
           <Route path ='/' element = {<Login/>}> </Route>
           <Route path ="/voter" element = {<Voter/>}></Route>
@@ -34,6 +40,9 @@ function App() {
           <Route path = "/contestantupdate" element = {<ContestantUpdate/>}></Route>
           <Route path = "/contestantupdate1" element = {<ContestantUpdate1/>}></Route>
           <Route path = "/votingpage" element ={<VotingPage/>}></Route>
+          <Route path = "/result" element ={<Result/>}></Route>
+          <Route path = "/verify" element ={<Verify/>}></Route>
+          <Route path = "/remove" element ={<DeleteVoter/>}></Route>
         </Routes>
       </BrowserRouter>
       
