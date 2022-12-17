@@ -25,16 +25,16 @@ function Contestant(){
         
     }
     return(
-        <div className="Header-form-container">
+        <div >
             <h1></h1>
-            <form className="Header-form">
-                <div className="Header-form-content">
-                    <h3 className="Header-form-title">Enter your details</h3>
-                    <div className="form-group mt-3">
-                    <label>Enter you Full Name</label><br/>
+            <form style={{alignContent:'center', textAlign:'center'}}>
+                <div>
+                    <h3>Enter the details of contestant</h3>
+                    <div >
+                    <label>Full Name</label><br/>
                     <input type ="text" value = {contestant.fullName} onChange ={(e)=>{setContestant({...contestant, fullName: e.target.value})}}/><br/>
                                        
-                    <div onChange ={(e)=>{setContestant({...contestant, gender: e.target.value})}}>
+                    <div style={{lineHeight:'10px'}} onChange ={(e)=>{setContestant({...contestant, gender: e.target.value})}}>
                     <input type ="radio" value = "Male"/>Male
                     <input type ="radio" value = "Female"/>Female
                     <input type ="radio" value = "Others"/>Others

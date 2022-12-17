@@ -4,7 +4,7 @@ const ABC = (props) => {
     
     return (
         <div>
-            <table>
+            <table style={{marginLeft:'auto', marginRight:'auto'}}>
                 <tr>
                     <th>ID</th>
                     <th>Contestant</th>
@@ -18,14 +18,6 @@ const ABC = (props) => {
                     {/* <td><button>Vote</button></td> */}
                 </tr>
             </table>
-                {/* <img src={props.data.image} width='100px' height='100px'></img>
-            </tr>
-            <td>
-                {props.data.fullName}
-            </td>
-            <tr>
-                <button>Vote</button>
-            </tr> */}
         </div>
     )
 }

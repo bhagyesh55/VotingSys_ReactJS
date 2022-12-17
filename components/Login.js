@@ -29,12 +29,15 @@ function Home(){
           if(emailID==='admin@admin' && password==='admin123'){
             console.log(response.data[i].emailID,response.data[i].password)
             window.location.assign("/admin");
-            break;
-            
+            break;  
           }else if (emailID===response.data[i].emailID && password===response.data[i].password){
             console.log(response.data[i].emailID,response.data[i].password)
             navigate('/voterhome')
             break;
+          } else{
+            
+            navigate('/')
+            
           }
         }
       })

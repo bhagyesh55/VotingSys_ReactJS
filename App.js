@@ -17,6 +17,7 @@ import DeleteVoter from "./components/DeleteVoter";
 import './CSS/Home.css'
 import './CSS/VoterHome.css'
 import './CSS/SignUp1.css'
+
 import './CSS/ContestantDetails.css';
 
 

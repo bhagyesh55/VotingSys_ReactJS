@@ -23,6 +23,7 @@ function VotingPage(){
             }
             axios.put(`http://localhost:8080/contestants/${contestantID}`,ele).then((res)=>console.log(res))
         })
+        window.location.assign('/voterhome')
     }
 
     useEffect(()=>{
@@ -40,8 +41,8 @@ function VotingPage(){
     
 
     return(
-        <div className="d-flex flex-column align-items-center">
-            <h1>Contestants</h1>
+        <div style={{textAlign:'center'}}>
+            <h1 style={{textAlign:'center'}}>Below are the eligible contestants</h1>
             {contestant.map((ele)=>
                 {
                     if(ele.status==='Approved'){
@@ -55,11 +56,11 @@ function VotingPage(){
                 }
             )}<br/>
 
-            <label style={{textAlign:'center'}}>Please enter your Voter ID</label>
-            <input type='number' value={voterID} onChange={(e)=>setVoterID(e.target.value)}></input><br/> 
-            <label style={{textAlign:'center'}}>Enter the ID of contestant you want to vote</label>
+            <label>Please enter your Voter ID</label><br/>
+            <input type='number' value={voterID} onChange={(e)=>setVoterID(e.target.value)}></input><br/>
+            <label style={{textAlign:'center'}}>Enter the ID of contestant you want to vote</label><br/>
             <input type='number' value={contestantID} onChange={(e)=>setContestantID(e.target.value)}></input><br/>   
-            <label style={{textAlign:'center'}}>Please enter your Vote</label>
+            <label style={{textAlign:'center'}}>Please enter 1 in below field to give your vote</label><br/>
             <input type='number' value={countOfVotes} onChange={(e)=>setCountOfVotes(e.target.value)}></input><br/> 
             <button onClick={final}>Vote</button>      
 

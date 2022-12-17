@@ -38,7 +38,7 @@ function VoterUpdate(){
     return(
         <div>
             <Container><br/>
-            <h1>Update Details</h1>
+            <h1 style={{textAlign:'center'}}>Update Details</h1>
             <hr/>
             <form onSubmit={handleSubmit}>
                 <div class="form-group">

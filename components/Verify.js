@@ -58,6 +58,7 @@ function Verify(){
                 navigate('/votingpage')
             }else{
                 navigate('/voterhome')
+                alert('You have already voted!!!')
             }
         })
         console.log(tp)
