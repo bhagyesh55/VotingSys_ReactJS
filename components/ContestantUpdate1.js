@@ -11,7 +11,7 @@ function ContestantUpdate1(){
         e.preventDefault();
         const updatecontestant ={contestantID,status};
         axios.put(`http://localhost:8080/contestant/update/${contestantID}`,updatecontestant).then((res)=>{console.log(res)})
-        navigate('/contestantupdate')
+        navigate('/admin')
     }
     return(
         <div>

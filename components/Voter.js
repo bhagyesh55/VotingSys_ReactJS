@@ -3,6 +3,11 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+var min = 7;
+var max = 13;
+var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+
 
 function Voter(){
     const navigate = useNavigate();
@@ -20,22 +25,15 @@ function Voter(){
         mobileNumber: 0.0, 
         password: "",
         contestantID: 0.0,
-        // login:{
-        //     mobileNumber:0.0,
-        //     emailID:"",
-        //     password:0.0,
-        //     loginStatus:"true"
-
-        // },
+        
     });
 
     function postVoter(e){
-        e.preventDefault();
-        let requestBody = voter
-        axios.post("http://localhost:8080/voter/add",requestBody).then(response=>{console.log(response)})
-        navigate('/')
-        alert("Registration is successfull")
-        
+            e.preventDefault();
+            let requestBody = voter
+            axios.post("http://localhost:8080/voter/add",requestBody).then(response=>{console.log(response)})
+            navigate('/')
+            alert("Registration is successfull")
     }
     return(
         <div className="Header-form-container">
