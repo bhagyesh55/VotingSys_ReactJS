@@ -10,24 +10,6 @@ function Verify(){
     const setYourVoterID =(e)=> {
         setVoterID(e.target.value);
       }
-
-    // const verification = (e)=>{
-    //     e.preventDefault();
-    //     const user = {voterID,contestantID}
-    //     console.log(user)
-
-    //     useEffect()
-    //     axios.get(`http://localhost:8080/voters/${voterID}`).then((res)=>{
-    //         console.log(res.data);
-    //         if(voterID===res.data.voterID && res.data.contestantID===0){
-    //             console.log('successful')
-    //             navigate('/votingpage')
-    //         }else {
-    //             alert("You have already voted")
-                
-    //         }//navigate('/votingpage')
-    //     })
-    // }
     
 
     // const verify = (e)=>{
