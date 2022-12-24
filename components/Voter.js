@@ -35,8 +35,19 @@ function Voter(){
             navigate('/')
             alert("Registration is successfull")
     }
+
+    const myStyle = {
+        backgroundImage: "url('https://www.cylumena.com/wp-content/uploads/2019/12/INS-GRD-2x-Online-Voting.png')",
+        height:'100vh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        position:'fixed'
+      }
+
     return(
-        <div className="Header-form-container">
+        <div style={myStyle}>
+
+<div className="header-form-container">
             <h1></h1>
             <form className="Header-form">
                 <div className="Header-form-content">
@@ -72,6 +83,9 @@ function Voter(){
                 <button onClick={(e)=>{postVoter(e);}}>Submit</button>
             </form>     
         </div>
+
+        </div>
+
     );
 
 }

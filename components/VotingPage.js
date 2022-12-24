@@ -43,6 +43,14 @@ function VotingPage(){
     return(
         <div style={{textAlign:'center'}}>
             <h1 style={{textAlign:'center'}}>Below are the eligible contestants</h1>
+            {/* <table style={{marginLeft:'auto', marginRight:'auto', width:'100%',borderBlock:"none"}}>
+                <tr>
+                    <th>ID</th>
+                    <th>Contestant</th>
+                    <th>Name</th>
+                </tr>
+            </table> */}
+           
             {contestant.map((ele)=>
                 {
                     if(ele.status==='Approved'){

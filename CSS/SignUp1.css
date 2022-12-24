@@ -1,7 +1,5 @@
 
-.Header{
-    background-color: blue;
-}
+
 
 .Header-form-container {
     margin-top: 100px;
@@ -9,17 +7,17 @@
     justify-content: right;
     align-items: center;
     width: 100vw;
-    height: 47vh;
+    height: 17vh;
     text-align: center;
 }
   
 .Header-form {
-    width: 300px;
+    width: 250px;
     /* box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px; */
     padding-top: 30px;
     padding-bottom: 20px;
     border-radius: 8px;
-    /* background-color: white; */
+    background-color: whitesmoke;
 }
   
 .Header-form-content {
