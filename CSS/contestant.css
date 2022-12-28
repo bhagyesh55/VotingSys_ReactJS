@@ -1,5 +1,5 @@
-.header1 {
-    margin-top: 100px;
+.Header-form-container-contestant {
+    margin-top: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,12 +14,12 @@
     padding-top: 30px;
     padding-bottom: 20px;
     border-radius: 8px;
-    background-color: white;
+    background-color: rgb(208, 216, 221);
 }
   
 .Header-form-content {
-    padding-left: 12%;
-    padding-right: 12%;
+    padding-left: 15%;
+    padding-right: 15%;
 }
   
 .Header-form-title {

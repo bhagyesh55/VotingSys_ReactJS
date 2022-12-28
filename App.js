@@ -18,17 +18,12 @@ import './CSS/Home.css'
 import './CSS/VoterHome.css'
 import './CSS/SignUp1.css'
 import './CSS/ContestantDetails.css';
-
+import './CSS/contestant.css';
+import './CSS/Admin.css';
 
 import { ReactDOM } from "react-dom";
 
-// const myStyle = {
-//   backgroundImage: "url('https://www.cylumena.com/wp-content/uploads/2019/12/INS-GRD-2x-Online-Voting.png')",
-//   height:'100vh',
-//   backgroundSize: 'cover',
-//   backgroundRepeat: 'no-repeat',
-//   position:'fixed'
-// }
+
 
 function App() {
   return (

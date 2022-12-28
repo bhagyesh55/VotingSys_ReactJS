@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Admin from "./Admin";
 
 function Verify(){
     const navigate = useNavigate();
@@ -35,12 +35,18 @@ function Verify(){
     const [tp, setTp] = useState();
     
     function Check(){
+        
+        let val = sessionStorage.getItem("ses")
         axios.get(`http://localhost:8080/voters/${voterID}`).then((res)=>{
-            if(res.data.contestantID===0){
+            if(res.data.contestantID===0 && val === "Start"){
                 navigate('/votingpage')
-            }else{
+                console.log(val)
+            }else if (res.data.contestantID===0 && val === "End"){
                 navigate('/voterhome')
-                alert('You have already voted!!!')
+                alert('Voting is Closed...')
+            }else {
+                navigate('/voterhome')
+                alert('You have already voted!')
             }
         })
         console.log(tp)

@@ -24,11 +24,20 @@ function Contestant(){
         navigate('/admin')
         
     }
+
+    const myStyle = {
+        backgroundImage: "url('https://s3.amazonaws.com/participedia.prod/d1645146-5d2c-4c29-bab9-a863c075a29d_onlinevoting.jpg')",
+        height:'100vh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        position:'fixed'
+    }
+
     return(
-        <div >
-            <h1></h1>
-            <form style={{alignContent:'center', textAlign:'center'}}>
-                <div>
+        <div style={myStyle}>
+            <div className="Header-form-container-contestant">
+                <form className="Header-form">
+                    <div >
                     <h3>Enter the details of contestant</h3>
                     <div >
                     <label>Full Name</label><br/>
@@ -56,9 +65,12 @@ function Contestant(){
                     <label>Enter the URL of image</label><br/>
                     <input type ="text" value = {contestant.image} onChange ={(e)=>{setContestant({...contestant, image: e.target.value})}}/><br/>
                     </div>
-                </div>
-                <button onClick={(e)=>{postContestant(e);}}>Submit</button>
-            </form>     
+                    </div>
+                    <button onClick={(e)=>{postContestant(e);}}>Submit</button>
+                </form>
+
+            </div>
+                
         </div>
     );
 

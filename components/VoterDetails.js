@@ -34,10 +34,10 @@ function VoterDetails(){
       name:'Mobile Number',
       selector:(row)=>row.mobileNumber
     },
-    {
-      name:'Voted?',
-      selector:(row)=>row.contestantID,
-    }
+    // {
+    //   name:'Voted?',
+    //   selector:(row)=>row.contestantID,
+    // }
 
   ];
 

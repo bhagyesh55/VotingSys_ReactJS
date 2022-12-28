@@ -1,14 +1,15 @@
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import SideNav, {Toggle,NavItem,NavIcon,NavText,} from '@trendmicro/react-sidenav';
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import { useState } from "react";
 
 
 function Admin() {
 
     const navigate = useNavigate();
+    const [state, setState] = useState();
 
     function logout(){
         navigate("/")
@@ -30,9 +31,19 @@ function Admin() {
         navigate("/result")
     }
 
+    function display(){
+        //console.log(state);
+        let val = sessionStorage.getItem("ses")
+        console.log(val)
+        sessionStorage.setItem("ses",state)
+    }
+
+
+
     return(
         <div>
             <h1 style={{textAlign:"center"}}>Welcome Admin</h1>
+            <h3 style={{textAlign:"center"}}>To start / stop election</h3>
         <SideNav 
             onSelect={selected=>{
                 console.log(selected)
@@ -62,6 +73,12 @@ function Admin() {
                     </NavItem>
                 </SideNav.Nav>
             </SideNav>
+
+            <select style={{marginLeft:'715px'}} onChange={(e)=>{setState(e.target.value)}}>
+                <option value="Start">Start</option>
+                <option value = "End">End</option>
+            </select><br/>
+            <button onClick={display} style={{marginLeft:'715px'}}>Submit</button>
         </div>
 
     //    <div>

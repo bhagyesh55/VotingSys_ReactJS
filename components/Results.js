@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Result(){
     const[contestant, setContestant] = useState([])
+    
 
     const getContestant = async ()=>{
         try{
@@ -22,7 +23,7 @@ function Result(){
         },
         {
             name: 'Contestant',
-            selector: (row)=> <img width={100} height={100} src={row.image}/>,
+            selector: (row)=> <img width={125} height={125} src={row.image}/>,
         },
 
         {
@@ -32,16 +33,20 @@ function Result(){
         {
             name: 'Votes Received',
             selector: (row)=> row.countOfVotes,
+                      
+            
         },
 
     ];
 
     useEffect(()=>{getContestant();},[]);
 
+    
+
     return(
         <div className="d-flex flex-column align-items-center">
             <h1>Contestants</h1>
-            <DataTable columns={columns} data={contestant} highlightOnHover/>
+            <DataTable columns={columns} data={contestant} defaultSortAsc={'Votes Received'} highlightOnHover/>
         </div>
 
     );

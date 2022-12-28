@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 var min = 7;
 var max = 13;
-var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+var regName = /^[a-zA-Z]+ [a-zA-Z]+$/; 
 
-function Voter(){
+function Add(){
     const navigate = useNavigate();
 
     const[voterID,setVoterID] = useState()
@@ -54,53 +54,30 @@ function Voter(){
 
         if (mobileNumber.length!==10){
             alert("Please Enter 10 Digit Mobile No");
-            navigate('/')
         }else if (emailID.substring(emailID.length-10,emailID.length)!== "@gmail.com"){
             alert("Please Enter Email in right format");
-        // } else if (!regName.test(firstName) || !regName.test(lastName)){
-        //     alert("Please Enter only Alphabets in Name");
-        // }else if (!regName.test(city) || !regName.test(state) || !regName.test(address)){
-        //     alert("Please Enter only Alphabate in Name");
-        // }else if (password.length < min || password.length > max){
+        } else if (!regName.test(firstName) || !regName.test(lastName)){
+            alert("Please Enter only Alphabets in Name");
+        }else if (!regName.test(city) || !regName.test(state) || !regName.test(address)){
+            alert("Please Enter only Alphabate in Name");
+        }else if (password.length < min || password.length > max){
             alert("PassWord Should have Minimun character of 7 and Maximun of 13");
         }else if (!regularExpression.test(password)){
             alert("password should contain atleast one number and one special character");
         }else{
             userGet.map((ele)=>{
-                if (ele.emailID === emailID || ele.mobileNumber === mobileNumber){
+                if (element.emailID === emailID || element.mobileNumber === mobileNumber){
                     alert("Voter already exists!")
-                    navigate('/')
                 }
-            });
-            // axios.post("http://localhost:8080/voter/add",data).then(response=>{console.log(response)})
-            // navigate('/')
-            // alert("Registration is successfull")
+            })
         }
-
-        let user = sessionStorage.getItem("user")
-        if (user === null){
-            axios.post("http://localhost:8080/voter/add",data).then(response=>response).then((data)=>{
-                if (data.data === "User Registered successfully"){
-                    alert("Registration Failed")
-                }else{
-                    alert("Registration successful")
-                    navigate('/')
-                }
-            });
-        }
-
+        axios.post("http://localhost:8080/voter/add",data).then(response=>{console.log(response)})
+        navigate('/')
+        alert("Registration is successfull")
     };
 
     useEffect(() => {axios.get("http://localhost:8080/voters").then((response) => setUserGet(response.data));}, []);
-    
-    const myStyle = {
-        backgroundImage: "url('https://www.cylumena.com/wp-content/uploads/2019/12/INS-GRD-2x-Online-Voting.png')",
-        height:'100vh',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        position:'fixed'
-      }
-      
+
     return(
 
         <div style={myStyle}>
@@ -142,9 +119,7 @@ function Voter(){
                     </form>     
                 </div>
         
-                </div>
-    );    
+                </div>        
+    )
 
 }
-
-export default Voter;
