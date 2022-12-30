@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react"
+import { Button, Container } from "react-bootstrap";
 
 
 
@@ -34,36 +35,49 @@ function VoterUpdate(){
         window.location.assign('/voterhome')
         
     }
+
+    const myStyle = {
+        backgroundImage: "url('https://s3.amazonaws.com/participedia.prod/d1645146-5d2c-4c29-bab9-a863c075a29d_onlinevoting.jpg')",
+        height:'100vh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        //position:'fixed'
+    }
     
     return(
-        <div >
-            <label >Voter ID</label>
-            <input type="number"  value = {voterID} onChange={(e)=>setYourVoterID(e)}/><br/>
+        <div style={myStyle} className="headers1">
+            
+            <h1 style={{textAlign:'center'}}>Update your details<br/>
+            
+            <label >Voter ID</label><br/>
+            <input style={{borderRadius:'12px'}}type="number"  value = {voterID} onChange={(e)=>setYourVoterID(e)}/><br/>
 
             <label style={{justifyContent:'center'}}>Address: {voters.address}</label><br/>
-            <input type="text" id="form1" value = {address} onChange={(e)=>setAddress(e.target.value)}/><br/>
+            <input style={{borderRadius:'12px'}} type="text" id="form1" value = {address} onChange={(e)=>setAddress(e.target.value)}/><br/>
 
             <label>City: {voters.city}</label><br/>
-            <input type="text" value = {city} onChange={(e)=>setCity(e.target.value)}/><br/>
+            <input style={{borderRadius:'12px'}} type="text" value = {city} onChange={(e)=>setCity(e.target.value)}/><br/>
 
             <label>State: {voters.state}</label><br/>
-            <input type="text"  value = {state} onChange={(e)=>setState(e.target.value)}/><br/>
+            <input style={{borderRadius:'12px'}} type="text"  value = {state} onChange={(e)=>setState(e.target.value)}/><br/>
 
             <label>Email ID: {voters.emailID}</label><br/>
-            <input type="text"  value = {emailID} onChange={(e)=>setEmailID(e.target.value)}/><br/>
+            <input style={{borderRadius:'12px'}} type="text"  value = {emailID} onChange={(e)=>setEmailID(e.target.value)}/><br/>
 
             <label>Mobile Number: {voters.mobileNumber}</label><br/>
-            <input type="number" value = {mobileNumber} onChange={(e)=>setMobileNumber(e.target.value)}/><br/>
+            <input style={{borderRadius:'12px'}} type="number" value = {mobileNumber} onChange={(e)=>setMobileNumber(e.target.value)}/><br/>
 
             <label>Password</label><br/>
-            <input type="password" value = {password} onChange={(e)=>setPassword(e.target.value)}/>
+            <input style={{borderRadius:'12px'}} type="password" value = {password} onChange={(e)=>setPassword(e.target.value)}/>
 
             <div>
-                <button onClick={()=>{show();}}>Show</button><br/>
+                <Button class="btn-btn-primary" onClick={()=>{show();}}>Show</Button><br/>
             </div>                
             <div>
-                <button onClick={()=>{handleSubmit();}}>Update</button><br/>
-            </div>  
+                <Button class="btn-btn-primary" onClick={()=>{handleSubmit();}}>Update</Button><br/>
+            </div>
+            
+            </h1>
         </div>
     );
 }

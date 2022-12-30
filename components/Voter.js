@@ -29,14 +29,30 @@ function Voter(){
     const setYourLast=(e)=>{setLastName(e.target.value)}
     const setYourGender=(e)=>{setGender(e.target.value)}
     const setYourDate=(e)=>{setDateOfBirth(e.target.value)}
+    
     const setYourAddress=(e)=>{setAddress(e.target.value)}
     const setYourCity=(e)=>{setCity(e.target.value)}
     const setYourState=(e)=>{setState(e.target.value)}
-    const setYourEmailID=(e)=>{setEmailID(e.target.value)}
+    const setYourEmail =(e)=>{setEmailID(e.target.value)}
     const setYourNumber=(e)=>{setMobileNumber(e.target.value)}
     const setYourPassword=(e)=>{setPassword(e.target.value)}
 
-    const register = ()=>{
+    // function dateOfBirth(){
+    //     var dtToday = new Date();
+    //     var month = dtToday.getMonth()+1;
+    //     var day = dtToday.getDate();
+    //     var year = dtToday.getFullYear();
+    //     if(month<0){
+    //         month = '0'+month.toString()
+    //     } if (day<10){
+    //         day = '0'+day.toString();
+    //     }
+    //     var maxDate = year+'-'+month+'-'+day;
+    //     ('.txtDate').attr('max',maxDate)
+    // }
+
+    const register = (e)=>{
+        e.preventDefault();
         let data = {
             voterID:0.0,
             firstName:firstName,
@@ -54,41 +70,44 @@ function Voter(){
 
         if (mobileNumber.length!==10){
             alert("Please Enter 10 Digit Mobile No");
-            navigate('/')
+            
         }else if (emailID.substring(emailID.length-10,emailID.length)!== "@gmail.com"){
             alert("Please Enter Email in right format");
-        // } else if (!regName.test(firstName) || !regName.test(lastName)){
-        //     alert("Please Enter only Alphabets in Name");
-        // }else if (!regName.test(city) || !regName.test(state) || !regName.test(address)){
-        //     alert("Please Enter only Alphabate in Name");
-        // }else if (password.length < min || password.length > max){
+         } else if (password.length < min || password.length > max){
             alert("PassWord Should have Minimun character of 7 and Maximun of 13");
         }else if (!regularExpression.test(password)){
             alert("password should contain atleast one number and one special character");
+        }
+        
+        // axios.get("http://localhost:8080/voters").then((response) =>{
+        //        console.log(response.data.emailID);
+        //         //alert("asas")
+        //         for(let i = 0;i<response.data.length;i++){
+        //             if(emailID===response.data[i].emailID) { 
+        //                 console.log(1)
+        //                 break;
+        //             } else {
+        //                 console.log(2)
+        //                 break;
+        //             }
+        //         }
+        //     })
+
+        let em = userGet.find(o=>o.emailID==emailID)
+        console.log(em);
+
+        let me = userGet.find(o=>o.mobileNumber==mobileNumber)
+        console.log(me);
+
+        if (em==undefined && me==undefined){
+            axios.post("http://localhost:8080/voter/add",data).then(response=>{console.log(response)})
+             navigate('/')
+             alert("Registration is successfull")
         }else{
-            userGet.map((ele)=>{
-                if (ele.emailID === emailID || ele.mobileNumber === mobileNumber){
-                    alert("Voter already exists!")
-                    navigate('/')
-                }
-            });
-            // axios.post("http://localhost:8080/voter/add",data).then(response=>{console.log(response)})
-            // navigate('/')
-            // alert("Registration is successfull")
+            console.log("old user")
+            alert("Voter already exist")
         }
-
-        let user = sessionStorage.getItem("user")
-        if (user === null){
-            axios.post("http://localhost:8080/voter/add",data).then(response=>response).then((data)=>{
-                if (data.data === "User Registered successfully"){
-                    alert("Registration Failed")
-                }else{
-                    alert("Registration successful")
-                    navigate('/')
-                }
-            });
-        }
-
+    
     };
 
     useEffect(() => {axios.get("http://localhost:8080/voters").then((response) => setUserGet(response.data));}, []);
@@ -131,7 +150,7 @@ function Voter(){
                             <label>State</label><br/>
                             <input type ="text" value = {state} onChange ={(e)=>{setYourState(e)}}/><br/>
                             <label>Email ID</label><br/>
-                            <input type ="email" value = {emailID} onChange ={(e)=>{setYourEmailID(e)}}/><br/>
+                            <input type ="email" value = {emailID} onChange ={(e)=>{setYourEmail(e)}}/><br/>
                             <label>Mobile Number</label><br/>
                             <input type ="number" value = {mobileNumber} onChange ={(e)=>{setYourNumber(e)}}/><br/>
                             <label>Password</label><br/>

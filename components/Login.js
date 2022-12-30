@@ -26,7 +26,7 @@ function Home(){
       axios.get('http://localhost:8080/voters').then((response)=>{
         console.log(response.data[0]);
         for(let i = 0;i<response.data.length;i++){
-          if(emailID==='admin@admin' && password==='admin123'){
+          if(emailID==='admin' && password==='admin123'){
             console.log(response.data[i].emailID,response.data[i].password)
             window.location.assign("/admin");
             break;  

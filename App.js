@@ -20,6 +20,7 @@ import './CSS/SignUp1.css'
 import './CSS/ContestantDetails.css';
 import './CSS/contestant.css';
 import './CSS/Admin.css';
+import './CSS/Update.css'
 
 import { ReactDOM } from "react-dom";
 
